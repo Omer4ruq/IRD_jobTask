@@ -25,8 +25,8 @@ const MainContent = ({ categoryId, duas, subCategoryId }) => {
   }
 
   return (
-    <div className="w-[890px] ">
-      <div className="bg-white p-4 border rounded mb-4 shadow font-inter w-[890px]">
+    <div className="w-[450px] md:w-[890px] ">
+      <div className="bg-white p-4 border rounded mb-4 shadow font-inter w-[450px] md:w-[890px]">
         <h1 className="text-[#1FA45B] text-base font-semibold">
           Section:
           <span className="font-medium text-[#393939] ml-2">
@@ -39,7 +39,7 @@ const MainContent = ({ categoryId, duas, subCategoryId }) => {
           {filteredDuas.map((dua, index) => (
             <div
               key={index}
-              className="bg-white p-4 border rounded mb-4 shadow w-[890px]"
+              className="bg-white p-4 border rounded mb-4 shadow w-[450px] md:w-[890px]"
             >
               <div className="flex">
                 <Image
@@ -60,7 +60,7 @@ const MainContent = ({ categoryId, duas, subCategoryId }) => {
               {dua.dua_arabic && (
                 <div>
                   {" "}
-                  <p className="text-[#393939] font-bold text-base font-inter pt-6">
+                  <p className="text-[#393939] text-end font-bold text-base font-inter pt-6">
                     {dua.dua_arabic}
                   </p>
                   <p className="text-[#393939] font-normal text-base font-inter pt-6">

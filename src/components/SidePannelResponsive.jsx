@@ -13,9 +13,9 @@ import support from "../../public/images/I want to support.png";
 import { CiHome } from "react-icons/ci";
 import Image from "next/image";
 
-const SidePannel = () => {
+const SidePannelResponsive = () => {
   return (
-    <div className="w-[100px] h-[930px] bg-white flex flex-col items-center justify-between py-5 rounded-md">
+    <div className="w-[full] h-[100px] bg-white flex  items-center justify-between px-2 rounded-md shadow-lg">
       <div className="">
         <Image
           src={logo}
@@ -26,7 +26,7 @@ const SidePannel = () => {
         ></Image>
       </div>
       <div className="flex items-center justify-center">
-        <div className="flex flex-col  justify-center items-center gap-6">
+        <div className="flex   justify-center items-center gap-6">
           <div className={`rounded-full w-[38px] h-[38px] bg-[#E2E2E2]`}>
             <CiHome className="text-2xl ml-2 mt-2 text-[#868686]" />
           </div>
@@ -39,12 +39,7 @@ const SidePannel = () => {
           <div className={`rounded-full w-[38px] h-[38px] bg-[#E2E2E2]`}>
             <CiBookmarkCheck className="text-2xl ml-2 mt-2 text-[#868686]" />
           </div>
-          <div className={`rounded-full w-[38px] h-[38px] bg-[#E2E2E2]`}>
-            <RiMedicineBottleLine className="text-2xl ml-2 mt-2 text-[#868686]" />
-          </div>
-          <div className={`rounded-full w-[38px] h-[38px] bg-[#E2E2E2]`}>
-            <IoChatbubblesOutline className="text-2xl ml-2 mt-2 text-[#868686]" />
-          </div>
+
           <div className={`rounded-full w-[38px] h-[38px] bg-[#E2E2E2]`}>
             <LuBookOpen className="text-2xl ml-2 mt-2 text-[#868686]" />
           </div>
@@ -63,4 +58,4 @@ const SidePannel = () => {
   );
 };
 
-export default SidePannel;
+export default SidePannelResponsive;
