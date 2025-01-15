@@ -108,7 +108,7 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
 
         {/* Main Content */}
         <div className="mr-24 md:mr-10">
-          {/* <div className="relative flex py-3 justify-end items-center">
+          <div className="relative flex py-3 justify-end items-center">
             <input
               type="text"
               placeholder="Search by Dua Name"
@@ -117,7 +117,7 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
             <div className="absolute right-4 bg-[#F3F4F6] w-[54px] h-[44px] flex items-center justify-center">
               <CiSearch className="text-xl" />
             </div>
-          </div> */}
+          </div>
           <MainContent
             categoryId={selectedCategoryId}
             duas={duaData}
