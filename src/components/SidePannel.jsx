@@ -15,7 +15,7 @@ import Image from "next/image";
 
 const SidePannel = () => {
   return (
-    <div className="w-[100px] h-[930px] bg-white flex flex-col items-center justify-between py-5 rounded-md">
+    <div className="w-[100px] h-[930px] bg-white flex flex-col items-center justify-between py-5 rounded-md shadow-xl">
       <div className="">
         <Image
           src={logo}
