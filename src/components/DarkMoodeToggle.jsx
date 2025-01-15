@@ -11,12 +11,12 @@ const DarkMoodeToggle = () => {
     <div>
       <label
         htmlFor="Toggle2"
-        className="inline-flex items-center space-x-4 cursor-pointer text-[#393939] p-4 ml-4"
+        className="flex justify-between items-center space-x-4 cursor-pointer text-[#393939] p-4 "
       >
         <span>Night Mode</span>
         <div
           className="w-8 h-2 border-2  bg-slate-300 
-  rounded-xl flex items-center justify-center p-1 relative cursor-pointer"
+  rounded-xl flex items-center justify-center p-1 relative cursor-pointer "
           onClick={toggle}
         >
           <FaCircle
