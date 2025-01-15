@@ -16,7 +16,7 @@ const SettingSidebar = () => {
   ];
 
   return (
-    <div className="w-[330px] bg-white p-4 font-inter mt-5 rounded-3xl">
+    <div className="w-[330px] bg-white p-4 font-inter mt-5 rounded-3xl shadow-lg">
       <h2 className="font-bold text-lg text-center text-[#393939]">Settings</h2>
       <div className="mt-4 px-4">
         {options.map((option) => {
@@ -53,7 +53,6 @@ const SettingSidebar = () => {
                 </h3>
               </div>
 
-              {/* Conditional Rendering for Child Components */}
               {selected === "appearance" && option.id === "appearance" && (
                 <div className="mt-2 pl-8">
                   <DarkMoodeToggle />
@@ -61,9 +60,9 @@ const SettingSidebar = () => {
               )}
               {selected === "language" && option.id === "language" && (
                 <div className="mt-2 pl-8">
-                  <div className="mt-4">
-                    <h3 className="font-medium">Language</h3>
-                    <div className="flex gap-2 mt-2">
+                  <div className="mt-4 justify-center ml-4">
+                    <h3 className="font-medium text-center">Language</h3>
+                    <div className="flex gap-2 mt-2 justify-center">
                       <button className="p-2 bg-green-500 text-white rounded">
                         English
                       </button>

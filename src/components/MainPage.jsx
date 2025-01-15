@@ -34,7 +34,7 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
             <input
               type="text"
               placeholder="Search by Dua Name"
-              className="border-2 rounded-md w-full lg:w-[370px] h-14 px-4"
+              className="border-2 rounded-md w-full lg:w-[370px] h-12 md:h-14 px-4"
             />
             <div className="absolute right-4 bg-[#F3F4F6] w-[32px] h-[24px] flex items-center justify-center">
               <CiSearch className="text-xl" />
@@ -50,13 +50,15 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
           </div>
         </div>
       </div>
-      <div className="flex lg:gap-4 gap-0">
+      <div className="flex justify-between  lg:gap-4 gap-0">
         {/* Sidebar Panel */}
-        <div className="hidden lg:block mt-5">
-          <SidePannel />
-        </div>
-        <div className="lg:hidden fixed z-10 bottom-0 w-full">
-          <SidePannelResponsive />
+        <div>
+          <div className="hidden lg:block mt-5">
+            <SidePannel />
+          </div>
+          <div className="lg:hidden fixed z-10 bottom-0 w-full">
+            <SidePannelResponsive />
+          </div>
         </div>
 
         {/* Category Section */}
@@ -105,7 +107,7 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
         </div>
 
         {/* Main Content */}
-        <div className="mr-48 md:mr-0 p-4 md:p-0">
+        <div className="mr-24 md:mr-10">
           {/* <div className="relative flex py-3 justify-end items-center">
             <input
               type="text"
@@ -126,24 +128,17 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
         {/* Setting Section */}
         <div className="relative">
           <div className="lg:hidden mt-4">
-            {/* <button
-              className="flex items-center gap-2 px-4 py-2 bg-gray-200 rounded-md"
-              onClick={() => setIsSettingOpen(!isSettingOpen)}
-            >
-              <CiSettings className="text-2xl" />
-            </button> */}
-
             {/* Sliding Sidebar for Settings */}
             <div
-              className={`absolute top-0 right-0 w-[250px] h-full shadow-lg z-20 transform ${
-                isSettingOpen ? "-translate-x-72 mr-6" : "translate-x-full"
+              className={`absolute top-0 right-0 w-[250px] h-full  z-20 transform ${
+                isSettingOpen ? "-translate-x-32 mr-2" : "translate-x-full"
               } transition-transform duration-300`}
             >
               <button
-                className="absolute top-4 left-4 text-xl"
+                className="absolute top-10 left-4 text-xl "
                 onClick={() => setIsSettingOpen(false)}
               >
-                <IoMdClose className="text-green-500" />
+                <IoMdClose className="text-[#1FA45B] text-xl " />
               </button>
               <SettingSidebar />
             </div>
