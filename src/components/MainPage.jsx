@@ -55,7 +55,7 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
         <div className="hidden lg:block mt-5">
           <SidePannel />
         </div>
-        <div className="lg:hidden fixed z-10 bottom-0 w-full mr-2">
+        <div className="lg:hidden fixed z-10 bottom-0 w-full">
           <SidePannelResponsive />
         </div>
 
@@ -135,7 +135,7 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
 
             {/* Sliding Sidebar for Settings */}
             <div
-              className={`absolute top-0 right-0 w-[250px] h-full bg-white shadow-lg z-20 transform ${
+              className={`absolute top-0 right-0 w-[250px] h-full shadow-lg z-20 transform ${
                 isSettingOpen ? "-translate-x-72 mr-6" : "translate-x-full"
               } transition-transform duration-300`}
             >

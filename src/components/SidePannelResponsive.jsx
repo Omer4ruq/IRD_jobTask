@@ -15,7 +15,7 @@ import Image from "next/image";
 
 const SidePannelResponsive = () => {
   return (
-    <div className="w-[full] h-[100px] bg-white flex  items-center justify-between px-2 rounded-md shadow-lg">
+    <div className="w-[full] h-[100px] bg-white flex  items-center justify-between px-2 rounded-md shadow-xl">
       <div className="">
         <Image
           src={logo}
