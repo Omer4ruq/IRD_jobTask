@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { use, useState } from "react";
 import AllahLogo from "../../public/images/allah 1 (Traced).png";
 import Image from "next/image";
 import { IoCopyOutline } from "react-icons/io5";
@@ -7,23 +8,24 @@ import { IoBulbOutline } from "react-icons/io5";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { MdOutlineReportGmailerrorred } from "react-icons/md";
 
-const MainContent = ({ categoryId, duas }) => {
+const MainContent = ({ categoryId, duas, subCategoryId }) => {
+  console.log("sub" + subCategoryId);
+  console.log("cat" + categoryId);
+
   if (!categoryId) {
-    return <p>Please select a category to see the content.</p>;
+    categoryId = 1;
   }
 
-  const filteredDuas = duas.filter((dua) => dua.cat_id === categoryId);
+  let filteredDuas = duas.filter((dua) => dua.cat_id === categoryId);
+
+  if (subCategoryId > 0) {
+    filteredDuas = filteredDuas.filter(
+      (dua) => dua.subcat_id === subCategoryId
+    );
+  }
+
   return (
     <div className="w-[890px] ">
-      {filteredDuas.length > 0 ? (
-        <ul>
-          {filteredDuas.map((dua) => (
-            <li key={dua.id}>{dua.dua_name_en}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>No duas available for this category.</p>
-      )}
       <div className="bg-white p-4 border rounded mb-4 shadow font-inter w-[890px]">
         <h1 className="text-[#1FA45B] text-base font-semibold">
           Section:
@@ -32,6 +34,65 @@ const MainContent = ({ categoryId, duas }) => {
           </span>
         </h1>
       </div>
+      {filteredDuas.length > 0 ? (
+        <ul>
+          {filteredDuas.map((dua, index) => (
+            <div
+              key={index}
+              className="bg-white p-4 border rounded mb-4 shadow w-[890px]"
+            >
+              <div className="flex">
+                <Image
+                  src={AllahLogo}
+                  width={25}
+                  height={25}
+                  alt="logo"
+                ></Image>
+                <h3 className="text-[#1FA45B] text-base font-semibold font-inter ml-2">
+                  {dua.dua_id}. {dua.dua_name_en}
+                </h3>
+              </div>
+
+              <p className="text-[#393939] font-normal text-base font-inter pt-6">
+                {dua.top_en}
+              </p>
+
+              {dua.dua_arabic && (
+                <div>
+                  {" "}
+                  <p className="text-[#393939] font-bold text-base font-inter pt-6">
+                    {dua.dua_arabic}
+                  </p>
+                  <p className="text-[#393939] font-normal text-base font-inter pt-6">
+                    <span className="font-semibold">Transliteration: </span>
+                    {dua.transliteration_en}
+                  </p>
+                  <p className="text-[#393939] font-normal text-base font-inter pt-6">
+                    <span className="font-semibold">Translation: </span>
+                    {dua.translation_en}
+                  </p>
+                </div>
+              )}
+
+              <div className="font-inter  text-base pt-6">
+                <h1 className="text-[#1FA45B] font-semibold">Reference:</h1>
+                <h1 className="text-[#393939] font-medium">
+                  {dua.refference_en}
+                </h1>
+              </div>
+              <div className="text-[#868686] text-end flex justify-end gap-6 mt-4 text-lg font-semibold">
+                <IoCopyOutline />
+                <CiBookmark />
+                <IoBulbOutline />
+                <IoShareSocialOutline />
+                <MdOutlineReportGmailerrorred />
+              </div>
+            </div>
+          ))}
+        </ul>
+      ) : (
+        <p>No duas available for this category.</p>
+      )}
 
       {/* {duas.map((dua) => (
         <div key={dua.id} className="p-4 border rounded mb-4 shadow">

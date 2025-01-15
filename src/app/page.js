@@ -16,7 +16,7 @@ export default async function Home({ categories, duas }) {
   const duaData = await getDua();
 
   return (
-    <div>
+    <div className="">
       <MainPage
         categoryData={categoryData}
         subCategoryData={subCategoryData}

@@ -12,6 +12,7 @@ import Image from "next/image";
 
 const MainPage = ({ categoryData, subCategoryData, duaData }) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const [selectedSubCategoryId, setSelectedSubCategoryId] = useState(null);
   return (
     <div>
       <div className="flex gap-4 h-screen m-10">
@@ -26,6 +27,7 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
             categories={categoryData}
             subCategories={subCategoryData}
             onCategoryClick={setSelectedCategoryId}
+            onSubCategoryClick={setSelectedSubCategoryId}
           />
         </div>
         <div>
@@ -42,7 +44,11 @@ const MainPage = ({ categoryData, subCategoryData, duaData }) => {
               <CiSearch className=" items-center mt-[10px] ml-4 text-xl" />
             </div>
           </div>
-          <MainContent categoryId={selectedCategoryId} duas={duaData} />
+          <MainContent
+            categoryId={selectedCategoryId}
+            duas={duaData}
+            subCategoryId={selectedSubCategoryId}
+          />
         </div>
         <div>
           <div className="flex justify-end gap-2 mt-5">

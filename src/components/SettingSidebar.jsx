@@ -2,6 +2,7 @@ import React from "react";
 import { IoLanguage } from "react-icons/io5";
 import { GrAppsRounded } from "react-icons/gr";
 import { HiOutlineRectangleStack } from "react-icons/hi2";
+import DarkMoodeToggle from "./DarkMoodeToggle";
 
 const SettingSidebar = () => {
   return (
@@ -45,17 +46,7 @@ const SettingSidebar = () => {
           </h3>
         </div>
       </div>
-      <label
-        htmlFor="Toggle2"
-        className="inline-flex items-center space-x-4 cursor-pointer text-[#393939] p-4 ml-4"
-      >
-        <span>Night Mode</span>
-        <span className="relative">
-          <input id="Toggle2" type="checkbox" className="hidden peer" />
-          <div className="w-10 h-4 rounded-full shadow bg-[#C1C1C1B2] peer-checked:bg-[#A4A4A4]"></div>
-          <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto bg-[#A4A4A4]"></div>
-        </span>
-      </label>
+      <DarkMoodeToggle></DarkMoodeToggle>
     </div>
   );
 };

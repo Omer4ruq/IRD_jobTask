@@ -5,13 +5,23 @@ import subCategory from "../../public/images/subCategory.png";
 import poppins from "next";
 import { CiSearch } from "react-icons/ci";
 
-const Sidebar = ({ categories, subCategories, onCategoryClick }) => {
+const Sidebar = ({
+  categories,
+  subCategories,
+  onCategoryClick,
+  onSubCategoryClick,
+}) => {
   //   console.log(categories);
-  const [expandedCategory, setExpandedCategory] = useState(null);
+  const [expandedCategory, setExpandedCategory] = useState(1);
 
   const handleCategoryClick = (categoryId) => {
     setExpandedCategory(categoryId);
+
     onCategoryClick(categoryId); // Notify parent about the selected category
+    onSubCategoryClick(0);
+  };
+  const handleSubCategoryClick = (subCategoryId) => {
+    onSubCategoryClick(subCategoryId); // Notify parent about the selected subcategory
   };
 
   return (
@@ -33,49 +43,59 @@ const Sidebar = ({ categories, subCategories, onCategoryClick }) => {
             key={index}
             className="bg-[#E8F0F5] rounded-lg p-3 mb-4  space-x-4 "
           >
-            <div className="flex justify-between items-center">
-              <div
-                className="flex gap-3"
-                onClick={() => handleCategoryClick(category.id)}
-              >
-                <Image
-                  src={subCategory}
-                  alt={category.cat_icon}
-                  width={50}
-                  height={50}
-                ></Image>
+            <button>
+              <div className="flex justify-between items-center">
+                <div
+                  className="flex gap-3"
+                  onClick={() => handleCategoryClick(category.id)}
+                >
+                  <Image
+                    src={subCategory}
+                    alt={category.cat_icon}
+                    width={50}
+                    height={50}
+                  ></Image>
 
-                <div className="w-[255px]">
-                  <h3 className="text-[#1FA45B] font-semibold text-base text-inter">
-                    {category.cat_name_en}
-                  </h3>
-                  <p className="text-sm font-normal  text-[#7E7E7E] font-poppins">
-                    Subcategory: {category.no_of_subcat}
-                  </p>
+                  <div className="w-[255px]">
+                    <h3 className="text-[#1FA45B] font-semibold text-base text-inter">
+                      {category.cat_name_en}
+                    </h3>
+                    <p className="text-sm font-normal  text-[#7E7E7E] font-poppins">
+                      Subcategory: {category.no_of_subcat}
+                    </p>
+                  </div>
+                </div>
+                <div className="text-sm text-gray-500 justify-end text-center">
+                  <h1 className="text-[#393939] font-inter text-base font-semibold">
+                    {category.no_of_dua}
+                  </h1>
+
+                  <div>
+                    <h1 className="font-normal text-sm font-poppins">Duas</h1>
+                  </div>
                 </div>
               </div>
-              <div className="text-sm text-gray-500 justify-end text-center">
-                <h1 className="text-[#393939] font-inter text-base font-semibold">
-                  {category.no_of_dua}
-                </h1>
-
-                <div>
-                  <h1 className="font-normal text-sm font-poppins">Duas</h1>
-                </div>
-              </div>
-            </div>
+            </button>
             <div>
               {expandedCategory === category.id && (
-                <ul className="list-none pl-4 border-l-2 border-green-500 space-y-2">
+                <ul className="list-disc pl-4 border-l-2 border-dotted border-primary border-[#1FA45B] space-y-2">
                   {subCategories
                     .filter((subCat, index) => subCat.cat_id === category.id)
                     .map((subCat) => (
-                      <li
+                      <button
                         key={subCat.subcat_id}
-                        className="text-sm text-gray-700"
+                        className=" mt-4 text-start text-base font-medium font-inter"
                       >
-                        {subCat.subcat_name_en}
-                      </li>
+                        {" "}
+                        <li
+                          className=" text-[#373737] border-dotted "
+                          onClick={() =>
+                            handleSubCategoryClick(subCat.subcat_id)
+                          }
+                        >
+                          {subCat.subcat_name_en}
+                        </li>
+                      </button>
                     ))}
                 </ul>
               )}
