@@ -17,11 +17,11 @@ const Sidebar = ({
   const handleCategoryClick = (categoryId) => {
     setExpandedCategory(categoryId);
 
-    onCategoryClick(categoryId); // Notify parent about the selected category
+    onCategoryClick(categoryId);
     onSubCategoryClick(0);
   };
   const handleSubCategoryClick = (subCategoryId) => {
-    onSubCategoryClick(subCategoryId); // Notify parent about the selected subcategory
+    onSubCategoryClick(subCategoryId);
   };
 
   return (
